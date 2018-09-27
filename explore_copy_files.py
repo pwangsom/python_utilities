@@ -4,9 +4,10 @@ import shutil
 # Main
 
 #E:\My_PhD_Works\Experiments\icmla02300\output\*\*_runALL_maxgen300_genLAST_all_normalized_objective.out
+#E:\My_PhD_Works\Experiments\kst01\output\*\*_runALL_maxgen300_genLAST_all_normalized_objective.out
 
-source_dir = 'E:/My_PhD_Works/Experiments/icmla02300/output/*/*_runALL_maxgen300_genLAST_all_normalized_objective.out'
-dest_dir = 'D:/Users/Peerasak/git/matlab-works/plot-3-objectives/icmla02300/'
+source_dir = 'E:/My_PhD_Works/Experiments/kst01/output/*/*_runALL_maxgen300_genLAST_all_normalized_objective.out'
+dest_dir = 'D:/Users/Peerasak/git/matlab-works/plot-3-objectives/kst01/out/'
 
 out_files = glob.glob(source_dir)
 
