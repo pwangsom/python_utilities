@@ -29,10 +29,11 @@ def avgL(l):
 
 # Main
 
-source_dir = 'D:/opt/Experiment/ola011/experiment0/output/*/*1000*_a5_indicator.out'
-dest_dir = 'D:/opt/Experiment/ola011/experiment0/analyze/1000_a5_indicator_summary.out'
+size = '250'
 
-size = 1000
+source_dir = 'D:/opt/Experiment/ola01/experiment0/output/*/*' + size + '*_a5_indicator.out'
+dest_dir = 'D:/opt/Experiment/ola01/experiment0/analyze/' + size + '_a5_indicator_summary.out'
+
 a1 = 'ensga_iii'
 a2 = 'nsga_iii'
 a3 = 'nsga_ii'
@@ -78,17 +79,9 @@ for line in globalCollector:
         nsgaii_hv.append(float(values[7]))
         nsgaii_igd.append(float(values[13]))
 
-""" print(ensgaiii_pareto)
-print(ensgaiii_hv)
-print(ensgaiii_igd)
-
-print(sum(ensgaiii_pareto) / float(len(ensgaiii_pareto)))
-print(sum(ensgaiii_hv) / float(len(ensgaiii_hv)))
-print(sum(ensgaiii_igd) / float(len(ensgaiii_igd))) """
-
-globalReport.append([size, a1, avgL(ensgaiii_pareto), avgL(ensgaiii_hv), avgL(ensgaiii_igd)])
-globalReport.append([size, a2, avgL(nsgaiii_pareto), avgL(nsgaiii_hv), avgL(nsgaiii_igd)])
-globalReport.append([size, a3, avgL(nsgaii_pareto), avgL(nsgaii_hv), avgL(nsgaii_igd)])
+globalReport.append([int(size), a1, avgL(ensgaiii_pareto), avgL(ensgaiii_hv), avgL(ensgaiii_igd)])
+globalReport.append([int(size), a2, avgL(nsgaiii_pareto), avgL(nsgaiii_hv), avgL(nsgaiii_igd)])
+globalReport.append([int(size), a3, avgL(nsgaii_pareto), avgL(nsgaii_hv), avgL(nsgaii_igd)])
 
 writeValueToFile(globalReport, dest_dir)
 

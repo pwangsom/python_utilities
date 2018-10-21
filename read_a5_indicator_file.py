@@ -24,8 +24,10 @@ def writeSummaryToFile(collector, file):
 
 # Main
 
-source_dir = 'D:/opt/Experiment/ola011/experiment0/output/*/*1000*_a5_indicator.out'
-dest_dir = 'D:/opt/Experiment/ola011/experiment0/analyze/1000_a5_indicator.out'
+size = '250'
+
+source_dir = 'D:/opt/Experiment/ola01/experiment0/output/*/*' + size + '*_a5_indicator.out'
+dest_dir = 'D:/opt/Experiment/ola01/experiment0/analyze/' + size + '_a5_indicator.out'
 
 out_files = glob.glob(source_dir)
 
