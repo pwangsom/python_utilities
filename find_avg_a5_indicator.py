@@ -29,10 +29,10 @@ def avgL(l):
 
 # Main
 
-size = '250'
+size = '500'
 
-source_dir = 'D:/opt/Experiment/ola01/experiment0/output/*/*' + size + '*_a5_indicator.out'
-dest_dir = 'D:/opt/Experiment/ola01/experiment0/analyze/' + size + '_a5_indicator_summary.out'
+source_dir = 'E:/My_PhD_Works/Experiments/ola020520/output/*/*' + size + '*_a5_indicator.out'
+dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/OLA2019/ola01/analyze/' + size + '_a5_indicator_summary.out'
 
 a1 = 'ensga_iii'
 a2 = 'nsga_iii'
@@ -66,18 +66,18 @@ for file in out_files:
 for line in globalCollector:
     values = line.split(',')
 
-    if(values[2] == 'ensgaiii'):
-        ensgaiii_pareto.append(float(values[6]))
-        ensgaiii_hv.append(float(values[7]))
-        ensgaiii_igd.append(float(values[13]))
-    elif(values[2] == 'nsgaiii'):
-        nsgaiii_pareto.append(float(values[6]))
-        nsgaiii_hv.append(float(values[7]))
-        nsgaiii_igd.append(float(values[13]))
-    elif(values[2] == 'nsgaii'):
-        nsgaii_pareto.append(float(values[6]))
-        nsgaii_hv.append(float(values[7]))
-        nsgaii_igd.append(float(values[13]))
+    if(values[3] == 'ensgaiii'):
+        ensgaiii_pareto.append(float(values[7]))
+        ensgaiii_hv.append(float(values[8]))
+        ensgaiii_igd.append(float(values[14]))
+    elif(values[3] == 'nsgaiii'):
+        nsgaiii_pareto.append(float(values[7]))
+        nsgaiii_hv.append(float(values[8]))
+        nsgaiii_igd.append(float(values[14]))
+    elif(values[3] == 'nsgaii'):
+        nsgaii_pareto.append(float(values[7]))
+        nsgaii_hv.append(float(values[8]))
+        nsgaii_igd.append(float(values[14]))
 
 globalReport.append([int(size), a1, avgL(ensgaiii_pareto), avgL(ensgaiii_hv), avgL(ensgaiii_igd)])
 globalReport.append([int(size), a2, avgL(nsgaiii_pareto), avgL(nsgaiii_hv), avgL(nsgaiii_igd)])

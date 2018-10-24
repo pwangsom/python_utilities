@@ -24,10 +24,13 @@ def writeSummaryToFile(collector, file):
 
 # Main
 
-size = '250'
+# E:\My_PhD_Works\Experiments
+# D:\Users\Peerasak\Google Drive KMUTT\PhD Works\Experiments\OLA2019\ola01\analyze
 
-source_dir = 'D:/opt/Experiment/ola01/experiment0/output/*/*' + size + '*_a5_indicator.out'
-dest_dir = 'D:/opt/Experiment/ola01/experiment0/analyze/' + size + '_a5_indicator.out'
+size = '500'
+
+source_dir = 'E:/My_PhD_Works/Experiments/ola020520/output/*/*' + size + '*_a5_indicator.out'
+dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/OLA2019/ola01/analyze/' + size + '_a5_indicator.out'
 
 out_files = glob.glob(source_dir)
 
