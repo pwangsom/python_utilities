@@ -15,7 +15,7 @@ def getSpecificedLine(file):
     collector = []
     with open(file) as infile:
         for line in infile:
-            if (line.find("_runAvgALL_maxgen600_gen600") != -1):
+            if (line.find("_runAvgALL_maxgen300_gen300") != -1):
                 collector.append(removeUnwantedCharacter(line))
     return collector        
 
@@ -29,10 +29,10 @@ def avgL(l):
 
 # Main
 
-size = '1000'
+size = '250'
 
-source_dir = 'E:/My_PhD_Works/Experiments/ola03' + size + '/output/*/*' + size + '*_a5_indicator.out'
-dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/OLA2019/ola03/analyze/' + size + '_a5_indicator_summary.out'
+source_dir = 'E:/My_PhD_Works/Experiments/ola050' + size + '/output/*/*' + size + '*_a5_indicator.out'
+dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/OLA2019/ola05/analyze/' + size + '_a5_indicator_summary.out'
 
 a1 = 'ensga_iii'
 a2 = 'nsga_iii'
