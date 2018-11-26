@@ -29,8 +29,8 @@ def writeSummaryToFile(collector, file):
 
 size = '250'
 
-source_dir = 'E:/My_PhD_Works/Experiments/ola050' + size + '/output/*/*' + size + '*_a5_indicator.out'
-dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/OLA2019/ola05/analyze/' + size + '_a5_indicator.out'
+source_dir = 'F:/My_PhD_Works/Experiments/ola061000/output/*_' + size + '*/'+ size + '*_a5_indicator.out'
+dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/OLA2019/ola061000/analyze/' + size + '_a5_indicator.out'
 
 print(source_dir)
 

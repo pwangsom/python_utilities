@@ -22,10 +22,11 @@ def writeSummaryToFile(collector, file):
 
 # E:\My_PhD_Works\Experiments
 # D:\Users\Peerasak\Google Drive KMUTT\PhD Works\Experiments\OLA2019\ola01\analyze
+# 'E:/My_PhD_Works/Experiments/ola05' + size + '/output/*/*' + size + '*_runALL_maxgenALL_genLast_normalized_pareto.out'
 
-size = '1000'
+size = '250'
 
-source_dir = 'E:/My_PhD_Works/Experiments/ola05' + size + '/output/*/*' + size + '*_runALL_maxgenALL_genLast_normalized_pareto.out'
+source_dir = 'F:/My_PhD_Works/Experiments/ola060500/output/*_' + size + '*/*' + size + '*_runALL_maxgenALL_genLast_normalized_pareto.out'
 
 print(source_dir)
 
