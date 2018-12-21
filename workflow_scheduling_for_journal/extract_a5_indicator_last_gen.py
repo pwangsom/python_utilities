@@ -1,13 +1,13 @@
 import glob
 import csv
 
-def getSpecificedLine(file):
+def getSpecificedLine(file, types, maxgen):
     collector = []
     with open(file) as infile:
         i = 1
         for line in infile:
             fields = line.replace('\n','').replace('\r', '').split(',')
-            if (i != 1 and int(fields[5]) == int(fields[6])) :
+            if (i != 1 and int(fields[4]) == types and int(fields[5]) == maxgen and int(fields[5]) == int(fields[6])) :
                 collector.append(fields)
                 # print(fields)
                 # print(collector)
@@ -27,8 +27,12 @@ def saveToCsvFile(collector, file):
 # D:\Users\Peerasak\Google Drive KMUTT\PhD Works\Experiments\journal\journal01\output
 
 # pwangsom, Peerasak
-window_user = 'pwangsom'
-experiment = 'journal01'
+window_user = 'Peerasak'
+
+# journal01, journal02, journal03, journal04, journal05, journal06, journal07, journal08
+experiment = 'journal08'
+
+maxgen = 300
 
 source_dir = 'D:/Users/' + window_user + '/Google Drive KMUTT/PhD Works/Experiments/journal/' + experiment + '/output/*a5_indicator.csv'
 
@@ -61,6 +65,12 @@ file_list = sorted(file_list, key=lambda x: (x[1], int(x[2])))
 
 print("")
 
+##################################################
+# 1. for archive type
+
+# 98 = archive solution, 99 = average from all runs
+types = 98
+
 content = []
 
 i = 1
@@ -75,19 +85,66 @@ for file in file_list:
 
             content.append(head)
 
-        content.extend(getSpecificedLine(file[0]))
+        content.extend(getSpecificedLine(file[0], types, maxgen))
     else:
-        content.extend(getSpecificedLine(file[0]))
+        content.extend(getSpecificedLine(file[0], types, maxgen))
 
     #print(content)
 
     i += 1
 
 
+file_type = types == 99 and 'average' or 'archive'
+
 saveAsFile = source_dir.replace('\\', '/')
-saveAsFile = saveAsFile.rsplit('/', 1)[0]
-saveAsFile = saveAsFile + '/' + experiment + '_a5_indicator_all.csv'
+saveAsFile = saveAsFile.rsplit('/', 2)[0]
+saveAsFile = saveAsFile + '/' + experiment + '_a5_indicator_' + file_type + '.csv'
 
 print(saveAsFile)
 
 saveToCsvFile(content, saveAsFile)
+
+print("")
+
+##################################################
+# 2. for average type
+
+# 98 = archive solution, 99 = average from all runs
+types = 99
+
+content = []
+
+i = 1
+for file in file_list:
+    print(str(i) + " " + file[0])
+
+    if(i == 1):
+        with open(file[0], 'r') as f:
+            head = f.readline().replace('\n','').replace('\r', '')
+            head = head.split(',')
+            # print(head)
+
+            content.append(head)
+
+        content.extend(getSpecificedLine(file[0], types, maxgen))
+    else:
+        content.extend(getSpecificedLine(file[0], types, maxgen))
+
+    #print(content)
+
+    i += 1
+
+
+file_type = types == 99 and 'average' or 'archive'
+
+saveAsFile = source_dir.replace('\\', '/')
+saveAsFile = saveAsFile.rsplit('/', 2)[0]
+saveAsFile = saveAsFile + '/' + experiment + '_a5_indicator_' + file_type + '.csv'
+
+print(saveAsFile)
+
+saveToCsvFile(content, saveAsFile)
+
+print("")
+
+##################################################
