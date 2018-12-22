@@ -33,14 +33,14 @@ def saveToCsvFile(collector, file):
 
 # Main
 
-# list.cluster=none,p2p,level,hori
+# list.cluster=none,p2p,level
 # list.algorithm=nsgaiii,ensgaiii
 
-# F:\My_PhD_Works\Experiments\journal01\output
+# F:\My_PhD_Works\Experiments\access2019\access01\output
 
-experiment = 'journal03'
+experiment = 'access01'
 
-source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.out'
+source_dir = 'F:/My_PhD_Works/Experiments/access2019/' + experiment + '/output/*/*a5_indicator.out'
 
 print(source_dir)
 

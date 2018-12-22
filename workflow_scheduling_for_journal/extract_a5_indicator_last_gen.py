@@ -24,17 +24,17 @@ def saveToCsvFile(collector, file):
 
 # Main
 
-# D:\Users\Peerasak\Google Drive KMUTT\PhD Works\Experiments\journal\journal01\output
+# D:\Users\Peerasak\Google Drive KMUTT\PhD Works\Experiments\access2019\access01\output
 
 # pwangsom, Peerasak
 window_user = 'Peerasak'
 
 # journal01, journal02, journal03, journal04, journal05, journal06, journal07, journal08
-experiment = 'journal08'
+experiment = 'access02_a5'
 
 maxgen = 300
 
-source_dir = 'D:/Users/' + window_user + '/Google Drive KMUTT/PhD Works/Experiments/journal/' + experiment + '/output/*a5_indicator.csv'
+source_dir = 'D:/Users/' + window_user + '/Google Drive KMUTT/PhD Works/Experiments/access2019/' + experiment + '/output/*a5_indicator.csv'
 
 print(source_dir)
 

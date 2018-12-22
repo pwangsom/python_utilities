@@ -37,14 +37,14 @@ def saveToCsvFile(collector, file):
 # list.cluster=none,p2p,level,hori
 # list.algorithm=nsgaiii,ensgaiii
 
-# F:\My_PhD_Works\Experiments\journal01\output
+# F:\My_PhD_Works\Experiments\access2019\access01\output
 
-experiment = 'journal08'
+experiment = 'access02_a5'
 
 #######################################################
 
 # Step 1. convert a5.out to a5.csv
-source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.out'
+source_dir = 'F:/My_PhD_Works/Experiments/access2019/' + experiment + '/output/*/*a5_indicator.out'
 
 print(source_dir)
 
@@ -71,8 +71,8 @@ for file in out_files:
 
 # Step 2. copy all csv of all workflow to the same folder
 
-source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.csv'
-dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/journal/' + experiment + '/output/'
+source_dir = 'F:/My_PhD_Works/Experiments/access2019/' + experiment + '/output/*/*a5_indicator.csv'
+dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/access2019/' + experiment + '/output/'
 
 out_files = glob.glob(source_dir)
 
