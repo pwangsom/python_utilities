@@ -30,7 +30,7 @@ def saveToCsvFile(collector, file):
 window_user = 'Peerasak'
 
 # journal01, journal02, journal03, journal04, journal05, journal06, journal07, journal08
-experiment = 'access6403'
+experiment = 'access12'
 
 maxgen = 300
 
