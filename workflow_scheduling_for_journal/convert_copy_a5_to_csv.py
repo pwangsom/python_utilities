@@ -38,13 +38,15 @@ def saveToCsvFile(collector, file):
 # list.algorithm=nsgaiii,ensgaiii
 
 # F:\My_PhD_Works\Experiments\access2019\access01\output
+# D:\Users\pwangsom\My_PhD_Works\Experiments\pilot01
 
-experiment = 'magnitude03'
+experiment = 'pilot01'
 
 #######################################################
 
 # Step 1. convert a5.out to a5.csv
-source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.out'
+# source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.out'
+source_dir = 'D:/Users/pwangsom/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.out'
 
 print(source_dir)
 
@@ -71,8 +73,9 @@ for file in out_files:
 
 # Step 2. copy all csv of all workflow to the same folder
 
-source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.csv'
-dest_dir = 'D:/Users/Peerasak/Google Drive KMUTT/PhD Works/Experiments/magnitude/' + experiment + '/output/'
+# source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.csv'
+source_dir = 'D:/Users/pwangsom/My_PhD_Works/Experiments/' + experiment + '/output/*/*a5_indicator.csv'
+dest_dir = 'D:/Users/pwangsom/Google Drive KMUTT/PhD Works/Experiments/' + experiment + '/output/'
 
 out_files = glob.glob(source_dir)
 
