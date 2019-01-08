@@ -122,7 +122,7 @@ dest_dir = getWindowDirectory() + '/Experiments/'+ experiment + '/output/'
 
 # Step 1. convert a3.out to a3.csv
 source_dir = main_source + '*a3_objective.out'
-# convertOutToCsv(source_dir)
+convertOutToCsv(source_dir)
 
 
 # Step 2. extract last gen from a3.csv
