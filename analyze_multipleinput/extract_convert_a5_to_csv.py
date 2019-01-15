@@ -139,6 +139,8 @@ def accomulateAllInputs(dest_dir):
         file = file.replace('\\', '/')
         print(str(i) + " " + file)
 
+        input_id = file.rsplit('/', 4)[1]
+
         with open(file) as infile:
             line_no = 1
 
@@ -146,9 +148,11 @@ def accomulateAllInputs(dest_dir):
                 if(line_no == 1):
                     if(i == 1):
                         fields = line.replace('\n','').replace('\r', '').split(',')
+                        fields.append("inputid")
                         all_collector.append(fields)
                 else:
                    fields = line.replace('\n','').replace('\r', '').split(',')
+                   fields.append(input_id)
                    content_collector.append(fields)
                 
                 line_no += 1
@@ -158,7 +162,7 @@ def accomulateAllInputs(dest_dir):
     content_collector = sorted(content_collector, key=lambda x: (x[0], int(x[1]), x[2], int(x[4])))
     all_collector = all_collector + content_collector
 
-    dest_dir = dest_dir + 'analyze/all_input_a5_lastgen_indicator.csv'
+    dest_dir = dest_dir + 'analyze/multipleinput_a5_lastgen_indicator.csv'
 
     saveToCsvFile(all_collector, dest_dir)
 
