@@ -180,12 +180,12 @@ main_source = 'F:/My_PhD_Works/Experiments/' + experiment + '/*/output/*/'
 dest_dir = getWindowDirectory() + '/Experiments/'+ experiment + '/'
 
 # Step 1. convert a5.out to a5.csv
-#source_dir = main_source + '*a5_indicator.out'
-#convertOutToCsv(source_dir)
+source_dir = main_source + '*a5_indicator.out'
+convertOutToCsv(source_dir)
 
 # Step 2. extract last gen from a5.csv
-#source_dir = main_source + '*a5_indicator.csv'
-#extractLastGenFromCsv(source_dir, dest_dir)
+source_dir = main_source + '*a5_indicator.csv'
+extractLastGenFromCsv(source_dir, dest_dir)
 
 # Step 3. accumolate all inputs
 accomulateAllInputs(dest_dir)
