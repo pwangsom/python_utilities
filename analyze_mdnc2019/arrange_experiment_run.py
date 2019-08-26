@@ -34,13 +34,13 @@ def readFile(file, algorithm, cluster, maxrun, maxgen, replicate, mode):
                 collector.append(row)
             i += 1
 
-    if(mode == -1):
+    if(mode == -30):
         collector.sort(key = operator.itemgetter(7))
     elif(mode == 1):
         collector.sort(key = operator.itemgetter(7), reverse=True)
-    elif(mode == -3):
+    elif(mode < 0):
         collector.sort(key = operator.itemgetter(7))
-        collector = collector[: maxrun - 3]
+        collector = collector[: maxrun + mode]
         collector.sort(key = operator.itemgetter(4))
     else:
         collector.sort(key = operator.itemgetter(4))
@@ -56,10 +56,10 @@ maxgen = 300
 maxrun = 30
 
 replicate = 25
-mode = 0
+mode = -1
 
-algorithm = 'nsgaiii'
-cluster = 'level'
+algorithm = 'ensgaiii'
+cluster = 'p2p'
 
 # cybershake_50, cybershake_100, cybershake_500, cybershake_800, cybershake_1000
 # epigenomics_50, epigenomics_100, epigenomics_500, epigenomics_800, epigenomics_1000
@@ -67,7 +67,7 @@ cluster = 'level'
 # montage_50, montage_100, montage_500, montage_800, montage_1000
 # sipht_50, sipht_100, sipht_500, sipht_800, sipht_1000
 
-worlflow_size = 'sipht_1000'
+worlflow_size = 'montage_500'
 
 experiment = 'MDNC2019/max30runs'
 file_name = 'D:/Users/pwangsom/Google Drive KMUTT/PhD Works/Experiments/'+ experiment + '/experiment0/output/' + worlflow_size + '_a5_indicator.csv'
