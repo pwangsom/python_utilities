@@ -60,7 +60,10 @@ def getSpecificedLine(file, types, maxgen):
         i = 1
         for line in infile:
             fields = line.replace('\n','').replace('\r', '').split(',')
-            if (i != 1 and int(fields[4]) == types and int(fields[5]) == maxgen and int(fields[5]) == int(fields[6])) :
+
+            if (types == 100 and i != 1 and int(fields[5]) == maxgen and int(fields[5]) == int(fields[6])) :
+                collector.append(fields)
+            elif (types != 100 and i != 1 and int(fields[4]) == types and int(fields[5]) == maxgen and int(fields[5]) == int(fields[6])) :
                 collector.append(fields)
             i += 1
 
@@ -148,7 +151,7 @@ def listAndSortFiles(source_dir):
 
 #######################################################
 
-def generateSummaryFile(source_dir, file_list, types, maxgen):
+def generateSummaryFile(source_dir, file_list, sub_folder, types, maxgen):
     content = []
 
     i = 1
@@ -168,12 +171,16 @@ def generateSummaryFile(source_dir, file_list, types, maxgen):
 
         i += 1
 
+    file_type = 'all_runs'
 
-    file_type = types == 99 and 'average' or 'archive'
+    if (types == 99):
+        file_type = 'average'
+    elif (types == 98):
+        file_type = 'archive'
 
     saveAsFile = source_dir.replace('\\', '/')
     saveAsFile = saveAsFile.rsplit('/', 4)[0]
-    saveAsFile = saveAsFile + '/max30runs_a5_indicator_' + file_type + '.csv'
+    saveAsFile = saveAsFile + '/' + sub_folder + '_a5_indicator_' + file_type + '.csv'
 
     print(saveAsFile)
 
@@ -186,15 +193,32 @@ def generateSummaryFile(source_dir, file_list, types, maxgen):
 
 # Main
 
-experiment = 'icmla02300'
 
 # D:\Users\pwangsom\Experiments\MDNC2019\max30runs
 # source_dir = 'F:/My_PhD_Works/Experiments/' + experiment + '/output/*/*a3_objective.out'
 # D:\Users\pwangsom\Google Drive KMUTT\PhD Works\Experiments\ICMLA2018\icmla02300
 
-main_source = 'F:/pwangsom/My_PhD_Works/Experiments/' + experiment + '/output/cybershake_50_180817011353/'
+#### ICMLA
+# experiment = 'icmla02300'
 
-dest_dir = 'D:/Users/pwangsom/Google Drive KMUTT/PhD Works/Experiments/ICMLA2018/'+ experiment + '/experiment0/output/'
+# main_source = 'F:/pwangsom/My_PhD_Works/Experiments/' + experiment + '/output/*/'
+
+# dest_dir = 'D:/Users/pwangsom/Google Drive KMUTT/PhD Works/Experiments/ICMLA2018/'+ experiment + '/experiment0/output/'
+
+#### MDNC
+# experiment = 'ieee2019'
+
+# main_source = 'F:/pwangsom/My_PhD_Works/Experiments/MDNC2019/' + experiment + '/output/*/'
+
+# dest_dir = 'D:/Users/pwangsom/Google Drive KMUTT/PhD Works/Experiments/MDNC2019/'+ experiment + '/experiment0/output/'
+
+#### KST
+experiment = 'kst2019'
+
+main_source = 'F:/pwangsom/My_PhD_Works/Experiments/' + experiment + '/output/*/'
+
+dest_dir = 'D:/Users/pwangsom/Google Drive KMUTT/PhD Works/Experiments/KST2019/'+ experiment + '/experiment0/output/'
+
 
 # Step 1. convert a5.out to a5.csv
 print("Step 1. convert a5.out to a5.csv")
@@ -213,10 +237,14 @@ file_list = listAndSortFiles(source_dir)
 
 # Step 4. generate archive summary file
 print("Step 4. generate archive summary file")
-generateSummaryFile(source_dir, file_list, 98, 300)
+generateSummaryFile(source_dir, file_list, experiment, 98, 300)
 
 # Step 5. generate average summary file
 print("Step 5. generate average summary file")
-generateSummaryFile(source_dir, file_list, 99, 300)
+generateSummaryFile(source_dir, file_list, experiment, 99, 300)
+
+# Step 6. generate all_run summary file
+print("Step 6. generate all_run summary file")
+generateSummaryFile(source_dir, file_list, experiment, 100, 300)
 
 #######################################################
